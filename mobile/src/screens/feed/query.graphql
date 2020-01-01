@@ -1,0 +1,11 @@
+query feed {
+  feed {
+    id
+    name
+    status
+    birthdate
+    images {
+      path
+    }
+  }
+}

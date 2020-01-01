@@ -1,0 +1,7 @@
+export const placeholder = '#929292'
+export const lightGray = '#8E8E93'
+export const black = '#000'
+export const primary = '#305168'
+export const background = '#f5f8fa'
+export const accent = '#8da4b4'
+export const text = '#305168'

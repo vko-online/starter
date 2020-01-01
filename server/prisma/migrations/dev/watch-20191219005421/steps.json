@@ -1,0 +1,15 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "stepType": "CreateField",
+      "model": "User",
+      "name": "birthdate",
+      "type": {
+        "Base": "DateTime"
+      },
+      "arity": "optional",
+      "isUnique": false
+    }
+  ]
+}

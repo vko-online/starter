@@ -1,0 +1,10 @@
+mutation login($phone:String!, $password:String!) {
+  login (phone:$phone, password:$password) {
+    token
+  }
+}
+mutation signup($name: String, $phone:String!, $password:String!) {
+  signup (name:$name, phone:$phone, password:$password) {
+    token
+  }
+}

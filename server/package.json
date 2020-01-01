@@ -1,0 +1,51 @@
+{
+  "name": "graphql-auth",
+  "license": "MIT",
+  "scripts": {
+    "start": "node dist/server",
+    "clean": "rm -rf dist",
+    "build": "npm -s run clean && npm -s run generate && tsc",
+    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+    "generate:prisma": "prisma2 generate",
+    "generate:nexus": "ts-node --transpile-only src/schema",
+    "postinstall": "npm -s run generate",
+    "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/server",
+    "seed": "ts-node prisma/seed"
+  },
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "graphql": "14.5.8",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-shield": "5.7.3",
+    "graphql-subscriptions": "^1.1.0",
+    "graphql-upload": "^8.1.0",
+    "graphql-yoga": "1.18.3",
+    "iterall": "^1.2.2",
+    "jsonwebtoken": "8.5.1",
+    "mime-types": "^2.1.24",
+    "nexus": "0.12.0-rc",
+    "nexus-prisma": "0.5.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@prisma/sdk": "0.0.21",
+    "@types/bcryptjs": "2.4.2",
+    "@types/graphql-upload": "^8.0.3",
+    "@types/jsonwebtoken": "8.3.5",
+    "@types/node": "12.12.5",
+    "@types/ws": "6.0.3",
+    "prisma2": "2.0.0-preview015",
+    "ts-node": "8.4.1",
+    "ts-node-dev": "1.0.0-pre.44",
+    "tslint": "^5.20.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "3.6.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "all"
+  }
+}

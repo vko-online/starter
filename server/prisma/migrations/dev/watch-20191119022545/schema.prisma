@@ -1,0 +1,54 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = "***"
+}
+
+model Form {
+  id              String @default(cuid()) @id
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  title           String
+  image           File?
+  redirect        String?
+  description     String?
+  owner           User? @relation(name: "UserForms")
+  submissions     Submission[] @relation(name: "FormSubmissions")
+}
+
+model Submission {
+  id              String @default(cuid()) @id
+  createdAt       DateTime @default(now())
+  json            String
+  parts           Part[]
+  file            File?
+  form            Form? @relation(name: "FormSubmissions")
+}
+
+model File {
+  id              String @default(cuid()) @id
+  createdAt       DateTime @default(now())
+  path            String
+  size            Int
+  mimetype        String
+  description     String?
+}
+
+model Part {
+  id              String @default(cuid()) @id
+  key             String
+  value           String
+}
+
+model User {
+  id              String @default(cuid()) @id
+  phone           String @unique
+  password        String
+  name            String?
+  forms           Form[] @relation(name: "UserForms")
+  device          String?
+  email           String?
+}

@@ -1,0 +1,50 @@
+generator photon {
+  provider = "photonjs"
+}
+
+datasource db {
+  provider = "sqlite"
+  url = "***"
+}
+
+enum Status {
+  FRIENDS_WITH_BENEFITS
+  DTF
+  OPEN_RELATIONSHIP
+  COMPLICATED
+  CHAT
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  LESBIAN
+  GUY
+  BISEXUAL
+  TRANSGENDER
+}
+
+model File {
+  id              String @default(cuid()) @id
+  createdAt       DateTime @default(now())
+  path            String
+  size            Int
+  mimetype        String
+  description     String?
+}
+
+model User {
+  id              String @default(cuid()) @id
+  phone           String @unique
+  name            String
+  password        String
+  birthdate       DateTime?
+  deviceId        String?
+  country         String?
+  city            String?
+  images          File[]
+  gender          Gender?
+  looking         Gender?
+  status          Status?
+  visible         Boolean @default(false)
+}

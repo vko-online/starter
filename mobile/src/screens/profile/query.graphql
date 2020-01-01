@@ -1,0 +1,17 @@
+query me {
+  me {
+    id
+    name
+    phone
+    birthdate
+    status
+    gender
+    city
+    country
+    looking
+    visible
+    images {
+      path
+    }
+  }
+}
